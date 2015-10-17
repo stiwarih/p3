@@ -24,3 +24,8 @@ Route::get('/show/{title?}', function ($title = null) {
 
 Route::get('/builder/{home?}', 'DriverController@bkbuilder');
 Route::get('/welcome', 'HomeController@homeWelcome');
+Route::get('/home', 'HomeController@goHome');
+Route::get('/', 'HomeController@goHome');
+Route::get('/lorem-ipsum', 'HomeController@goIpsumDef');
+Route::get('/user-generator', 'HomeController@goUserDef');
+Route::post('/user-generator', 'HomeController@goUserPost');

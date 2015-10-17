@@ -3,14 +3,97 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\JsonResponse as JSONFile;
+use Badcow\LoremIpsum\Generator as Generator;
 
 class HomeController extends Controller {
+
+	public function goHome()
+	{
+		return view('home');
+		//return 'home';
+	}
+
+	public function goUserDef()
+	{
+		$faker =\Faker\Factory::create();
+		/*echo $faker->name;
+		echo $faker->address;
+	  echo $faker->text;
+		echo $faker->phoneNumber
+		echo $faker->email;
+		*/
+//return $view->with('persons', $persons)->with('ms', $ms);
+/*
+		$users = array(
+    'name'  	=> $faker->name,
+    'address' => $faker->address,
+		'email'   => $faker->email,
+		'text'   	=> $faker->text,
+    'phone' 	=> $faker->phoneNumber
+		);
+
+		return view('user')->with('users', $users);
+//blade
+		<section>
+		@foreach($paragraphs as $paragraph)
+		 {{ $paragraph }}
+		@endforeach
+		</section>
+*/
+		$users = array(
+		    0 => array(
+					'name'  	=> $faker->name,
+			    'address' => $faker->address,
+					'email'   => $faker->email,
+			    'phone' 	=> $faker->phoneNumber,
+					'text'   	=> $faker->text
+		    ),
+		    1 => array(
+					'name'  	=> $faker->name,
+			    'address' => $faker->address,
+					'email'   => $faker->email,
+					'phone' 	=> $faker->phoneNumber,
+					'text'   	=> $faker->text
+		    )
+		);
+		return view('user')->with('users', $users);
+	}
+
+	public function goUser()
+	{
+		//return $view->with('persons', $persons)->with('ms', $ms);
+		return view('user')->with('data', $data);
+	}
+
+
+		public function goIpsum()
+		{
+			return view('ipsum');
+		}
+
+		public function goIpsumDef()
+		{
+
+			/*
+			$temp = 'sanjay tiwari';
+			return view('user')->with('temp', $temp);
+			*/
+			//return $view->with('persons', $persons)->with('ms', $ms);
+
+			$generator = new Generator();
+
+			$paragraphs = $generator->getParagraphs(5);
+			//echo implode('<p>', $paragraphs);
+
+			return view('ipsum')->with('paragraphs', $paragraphs);
+
+		}
 
 	public function homeWelcome()
 	{
 		$this->obtain_thejoson();
-		return view('welcome');
+		// return view('welcome');
+		return 'welcome';
 	}
 
 	public function url_get_contents ($url)
@@ -38,28 +121,38 @@ class HomeController extends Controller {
   }
 
 	private function obtain_thejoson()
-  {
+	{
 
-        $url = 'https://randomuser.me/api/';
+        $url ='https://www.randomuser.me/api/';
+				$url ='http://api.randomuser.me/';
 				//$url = 'http://www.google.com';
         // $url .=  base64_decode($this->mysecret);
-        // $url .= '@stash.micron.com/stash/rest/api/1.0/projects/JEN/repos/test_pr/pull-requests';
-         //$dump_contents = $this->url_get_contents ($url);
-				//$dump_contents = File::getRemote($url);
-if ($dump_contents === false)
-{
-    die("Couldn't fetch the file.");
-}
-				var_dump($dump_contents);
+         $dump_contents = $this->url_get_contents ($url);
+				/*
+				if ($dump_contents === false)
+				{
+				    die("Couldn't fetch the file.");
+				}
+				*/
+				// var_dump($dump_contents);
 				$obj = json_decode($dump_contents,true);
-        var_dump($obj); //json as array
-    // var_dump(array_keys($obj)); //json as array
+        // var_dump($obj); //json as array
+				echo('<pre>');
+    		var_dump(array_keys($obj['results'][0]['user'])); //json as array
     // var_dump(array_keys($obj)); //print out all keys
     // var_dump(($obj['values'][0]['fromRef']['latestChangeset'])); //json as array
         //return base64_decode($this->mysecret);
 				// return (($obj['values'][0]['fromRef']['latestChangeset'])); //json as array
 
+				//fake users
+				$faker =\Faker\Factory::create();
+				echo $faker->name;
 
-        }
+				// paragraphs- lorem ipsum
+				$generator = new Generator();
+				$paragraphs = $generator->getParagraphs(5);
+				echo implode('<p>', $paragraphs);
+
+		}
 
 }
