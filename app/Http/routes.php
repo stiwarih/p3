@@ -21,3 +21,6 @@ Route::get('/show/{title?}', function ($title = null) {
     return 'Hello world!' . $title;
 
 });
+
+Route::get('/builder/{home?}', 'DriverController@bkbuilder');
+Route::get('/welcome', 'HomeController@homeWelcome');
