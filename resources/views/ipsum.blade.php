@@ -85,7 +85,7 @@
           @endforeach
           </section>
 
-          <p><a href='http://p3.stiwari.me/'><---Go Home</a>
+          <a href='http://p3.stiwari.me/'><---Go Home</a>
 
     </body>
 </html>

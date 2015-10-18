@@ -8,6 +8,7 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
         "badcow/lorem-ipsum": "dev-master",
+        "barryvdh/laravel-debugbar": "^2.0",
         "fzaninotto/faker": "^1.5"
     },
     "require-dev": {

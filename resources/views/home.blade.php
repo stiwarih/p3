@@ -3,6 +3,8 @@
     <head>
         <title>Developer's Best Friend</title>
 
+        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+
         <style>
             html, body {
                 height: 100%;
@@ -31,64 +33,27 @@
             .title {
                 font-size: 96px;
             }
-            a:link {
-                color:#ea0;
-                //  background-color: darkblue;
-                font-size: 25px;
-            }
-
-            /* visited link */
-            a:visited {
-                color: #00FF00;
-            }
-
-            /* mouse over link */
-            a:hover {
-                color: #FF00FF;
-            }
-
-            /* selected link */
-            a:active {
-                color: #0000FF;
-            }
-            .rcorners2 {
-              border: 1px solid #0000FF;
-              border-radius: 25px;
-              border: 2px solid #8AC007;
-              padding: 20px;
-              width: 200px;
-              height: 150px;
-              align: center;
-          }
-
         </style>
     </head>
-    <body >
-      <h1 align=center>Developer's Best Friend</h1>
+    <body>
+      <h1>Developer's Best Friend</h1>
 
       <h2>Lorem Ipsum Generator</h2>
-      <div>
-        <blockquote>
-        <p>In publishing and graphic design, lorem ipsum (derived from Latin dolorem ipsum, translated as "pain itself") is a filler text commonly used to demonstrate the graphic elements of a document or visual presentation. Replacing meaningful content with placeholder text allows viewers to focus on graphic aspects such as font, typography, and page layout without being distracted by the content. It also reduces the need for the designer to come up with meaningful text, as they can instead use quickly-generated lorem ipsum.
-
-        <p>The lorem ipsum text is typically a scrambled section of De finibus bonorum et malorum, a 1st-century BC Latin text by Cicero, with words altered, added, and removed to make it nonsensical, improper Latin.
-
-        <p>A variation of the ordinary lorem ipsum text has been used in typesetting since the 1960s or earlier, when it was popularized by advertisements for Letraset transfer sheets. It was introduced to the Information Age in the mid-1980s by Aldus Corporation, which employed it in graphics and word processing templates for its desktop publishing program, PageMaker, for the Apple Macintosh.[1]
-        </blockquote>
-      </div>
-      <p>Use this link to create random text
       <blockquote>
-      <a href='/lorem-ipsum'>Create lorem ipsum text--></a>
+        In publishing and graphic design, lorem ipsum is a placeholder text commonly used to demonstrate the graphic elements of a document or visual presentation.
+        By replacing the distraction of meaningful content with filler text of scrambled Latin it allows viewers to focus on graphical elements such as font, typography, and layout.
       </blockquote>
+
+      <p>Create random text for your use.</p>
+
+      <a href='/lorem-ipsum'>Generate some text...</a>
+
       <br>
 
       <h2>Random User Generator</h2>
-      <blockquote>
-      <p>Create random user data for your application. A very similar concept of Lorem Ipsum text, applied to generating people profiles.</p>
-      </blockquote>
-      <p>Use this link to create random users profiles
-      <blockquote>
-      <a href='/user-generator'>Create random users--></a>
-      </blockquote>
+      <p>Create random user data for your applications. Like Lorem Ipsum, but for people.</p>
+
+      <a href='/user-generator'>Generate some users...</a>
+
     </body>
 </html>
