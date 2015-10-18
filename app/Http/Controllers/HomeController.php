@@ -21,20 +21,20 @@ class HomeController extends Controller {
 		$users = array(
 		    0 => array(
 					'name'  	=> $faker->name,
-			    'address' => $faker->address,
 					'email'   => $faker->email,
+					'address' => $faker->address,
 			    'phone' 	=> $faker->phoneNumber,
 					'text'   	=> $faker->text
 		    ),
 		    1 => array(
 					'name'  	=> $faker->name,
-			    'address' => $faker->address,
 					'email'   => $faker->email,
+					'address' => $faker->address,
 					'phone' 	=> $faker->phoneNumber,
 					'text'   	=> $faker->text
 		    )
 		);
-		return view('user')->with('users', $users)->with('use_email', 0)->with('use_address', 0)->with('use_phoneNumber', 0);
+		return view('user')->with('users', $users)->with('use_email', 1)->with('use_address', 1)->with('use_phoneNumber', 1);
 	}
 
 	public function goUser()
@@ -60,10 +60,10 @@ class HomeController extends Controller {
 		{
 				$users[$i] 						= array();
 				$users[$i]['name'] 		= $faker->name;
-				if($use_address ==1)
-				$users[$i]['address'] = $faker->address;
 				if($use_email == 1)
 				$users[$i]['email'] 	= $faker->email;
+				if($use_address ==1)
+				$users[$i]['address'] = $faker->address;
 				if($use_phoneNumber ==1)
 				$users[$i]['phone'] 	= $faker->phoneNumber;
 				$users[$i]['text'] 		= $faker->text;
@@ -134,35 +134,15 @@ class HomeController extends Controller {
 	private function obtain_thejoson()
 	{
 
-        $url ='https://www.randomuser.me/api/';
 				$url ='http://api.randomuser.me/';
-				//$url = 'http://www.google.com';
-        // $url .=  base64_decode($this->mysecret);
-         $dump_contents = $this->url_get_contents ($url);
-				/*
-				if ($dump_contents === false)
-				{
-				    die("Couldn't fetch the file.");
-				}
-				*/
-				// var_dump($dump_contents);
+        $dump_contents = $this->url_get_contents ($url);
 				$obj = json_decode($dump_contents,true);
-        // var_dump($obj); //json as array
-				echo('<pre>');
+        echo('<pre>');
     		var_dump(array_keys($obj['results'][0]['user'])); //json as array
     // var_dump(array_keys($obj)); //print out all keys
     // var_dump(($obj['values'][0]['fromRef']['latestChangeset'])); //json as array
         //return base64_decode($this->mysecret);
 				// return (($obj['values'][0]['fromRef']['latestChangeset'])); //json as array
-
-				//fake users
-				$faker =\Faker\Factory::create();
-				echo $faker->name;
-
-				// paragraphs- lorem ipsum
-				$generator = new Generator();
-				$paragraphs = $generator->getParagraphs(5);
-				echo implode('<p>', $paragraphs);
 
 		}
 
