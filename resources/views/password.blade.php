@@ -72,11 +72,11 @@
       		<input name="passwords" type="number" value={{(isset($num_pass))?$num_pass:1}} id="passwords"> (Max: 9)
       		<br><br>
 
-          <label for="use_spl_chards">Use special charatcers</label>
     			<input type="checkbox" name="use_spl_chards" value="splChars" <?php if($use_spl == 1){echo("checked");}?> >
+          <label for="use_spl_chards">Use special charatcers</label>
           <br>
-          <label for="use_number">Use Numbers</label>
     			<input type="checkbox" name="use_number" value="useNumber" <?php if($use_num == 1){echo("checked");}?> >
+          <label for="use_number">Use Numbers</label>
           <br>
       		<input type="submit" value="Generate Password"">
           </form>
