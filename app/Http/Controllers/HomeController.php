@@ -44,8 +44,11 @@ class HomeController extends Controller {
 	}
 
 	public function goUserPost(Request $request = null)
-	//public function goIpsumPost()
 	{
+		$this->validate($request, [
+				'users' => 'required|min:1',
+		]);
+
 		$num_users = $request->input('users');
 		//if($num_users > 99) die('User count too high');
 		$use_email 				= isset( $_POST['email'])?1:0;
@@ -88,8 +91,11 @@ class HomeController extends Controller {
 		}
 
 		public function goIpsumPost(Request $request = null)
-		//public function goIpsumPost()
 		{
+			$this->validate($request, [
+	        'paragraphs' => 'required|min:1',
+	    ]);
+
 			$num = $request->input('paragraphs');
 
 			$generator = new Generator();
@@ -182,11 +188,9 @@ class HomeController extends Controller {
 
 		public function goPassPost(Request $request = null)
 		{
-			/*
 			$this->validate($request, [
-	        'passwords' => 'required|min:3',
+	        'passwords' => 'required|min:1',
 	    ]);
-			*/
 
 			$num_pass 							= $request->input('passwords');
 			//if($num_pass > 9) die('User count too high');

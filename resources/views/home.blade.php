@@ -65,7 +65,13 @@
     </head>
     <body >
       <h1 align=center>Developer's Best Friend</h1>
-
+      @if(count($errors) > 0)
+          <ul>
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+      @endif      
       <h2>Lorem Ipsum Generator</h2>
       <div>
         <blockquote>
@@ -95,7 +101,7 @@
       <a href='/rest-api'>Create single random user--></a>
       </blockquote>
       <br>
-      
+
       <h2>Random Password Generator</h2>
       <p>Create Random Password for your application.
       <blockquote>

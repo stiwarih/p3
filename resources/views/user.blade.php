@@ -62,6 +62,13 @@
     </head>
     <body>
         <h1>User Generator</h1>
+        @if(count($errors) > 0)
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        @endif
         <a href='http://p3.stiwari.me/'><---Go Home</a>
 
         <p><br>
