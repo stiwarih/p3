@@ -61,10 +61,10 @@
         </script>
     </head>
     <body>
-      <a href='http://p3.stiwari.me/'><---Go Home</a>
-
         <h1>User Generator</h1>
+        <a href='http://p3.stiwari.me/'><---Go Home</a>
 
+        <p><br>
       	<form method="POST" name="user-gen" action="/user-generator" onsubmit="return validateForm()" accept-charset="UTF-8" >
       		<label for="users">How many users?</label>
           <input maxlength="2" name="users" type="number" value={{(isset($num_users))?$num_users:2}} id="users"> (Max: 99)
