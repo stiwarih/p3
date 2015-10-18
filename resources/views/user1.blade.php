@@ -44,7 +44,9 @@
     <body>
         <h1>Single User Generator</h1>
         <a href='http://p3.stiwari.me/'><---Go Home</a>
+        <p>
 
+        <div >
           @foreach($users as $user)
             <div class='rcorners2'>
               <img src={{$image}} >
@@ -55,7 +57,7 @@
             @endforeach
             </div>
           @endforeach
-
+        </div>
           <p><a href='http://p3.stiwari.me/'><---Go Home</a>
     </body>
 </html>
