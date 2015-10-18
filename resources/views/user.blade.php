@@ -117,6 +117,6 @@
             @endif
 
 	        </section>
-          <a href='http://p3.stiwari.me/'><---Go Home</a>
+          <p><a href='http://p3.stiwari.me/'><---Go Home</a>
     </body>
 </html>
