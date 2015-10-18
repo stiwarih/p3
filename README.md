@@ -4,13 +4,13 @@
 <http://p3.stiwari.me>
 
 ## Github URL
-https://github.com/stiwarih/p3>
+<https://github.com/stiwarih/p3>
 
 ## Description
 This provide access to two popular tools for Random Text and User generator using configurable inputs. In addition a third tool provide user an easy access to random user.
 
 ## Demo
-<http://p3.stiwari.me>
+<http://screencast.com/t/G8kdejcg>
 
 ## Details for teaching team
 No login required.
