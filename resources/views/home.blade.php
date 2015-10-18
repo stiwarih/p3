@@ -94,7 +94,8 @@
       <blockquote>
       <a href='/rest-api'>Create single random user--></a>
       </blockquote>
-
+      <br>
+      
       <h2>Random Password Generator</h2>
       <p>Create Random Password for your application.
       <blockquote>
