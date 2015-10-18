@@ -42,9 +42,8 @@
         </style>
     </head>
     <body>
-      <a href='http://p3.stiwari.me/'><---Go Home</a>
-
         <h1>Single User Generator</h1>
+        <a href='http://p3.stiwari.me/'><---Go Home</a>
 
           @foreach($users as $user)
             <div class='rcorners2'>

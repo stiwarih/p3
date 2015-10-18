@@ -14,5 +14,6 @@ class VerifyCsrfToken extends BaseVerifier
     protected $except = [
          'lorem-ipsum',
          'user-generator',
+         'password-generator',
     ];
 }

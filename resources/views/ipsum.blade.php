@@ -63,10 +63,10 @@
 
     </head>
     <body>
+      <h1>Lorem Ipsum Generator</h1>
       <a href='http://p3.stiwari.me/'><---Go Home</a>
 
-      <h1>Lorem Ipsum Generator</h1>
-      How many paragraphs do you want?
+      <p>How many paragraphs do you want?
 
       	<form method='POST' name='ipsum' action='/lorem-ipsum' onsubmit="return validateForm()"  accept-charset="UTF-8">
           <label for="paragraphs">Paragraphs</label>
