@@ -11,19 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-    // return 'Hello world!';
-
-});
-
-Route::get('/show/{title?}', function ($title = null) {
-    return 'Hello world!' . $title;
-
-});
-
-Route::get('/builder/{home?}', 'DriverController@bkbuilder');
-Route::get('/welcome', 'HomeController@homeWelcome');
+Route::get('/rest-api', 'HomeController@restControl');
 Route::get('/home', 'HomeController@goHome');
 Route::get('/', 'HomeController@goHome');
 Route::get('/lorem-ipsum', 'HomeController@goIpsumDef');

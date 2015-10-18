@@ -90,5 +90,9 @@
       <blockquote>
       <a href='/user-generator'>Create random users--></a>
       </blockquote>
+      <p>Rest API based method to create random users profiles
+      <blockquote>
+      <a href='/rest-api'>Create random users--></a>
+      </blockquote>
     </body>
 </html>

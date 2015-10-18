@@ -100,13 +100,11 @@ class HomeController extends Controller {
 			return view('ipsum')->with('paragraphs', $paragraphs)->with('num_para', $num);
 		}
 
-	public function homeWelcome()
+	public function restControl()
 	{
-		$this->obtain_thejoson();
-		// return view('welcome');
-		return 'welcome';
+		return $this->obtain_thejoson();
 	}
-
+	
 	public function url_get_contents ($url)
   {
          if (function_exists('curl_exec')){
@@ -131,19 +129,28 @@ class HomeController extends Controller {
          return $url_get_contents_data;
   }
 
-	private function obtain_thejoson()
+	public function obtain_thejoson()
 	{
-
 				$url ='http://api.randomuser.me/';
         $dump_contents = $this->url_get_contents ($url);
 				$obj = json_decode($dump_contents,true);
-        echo('<pre>');
-    		var_dump(array_keys($obj['results'][0]['user'])); //json as array
-    // var_dump(array_keys($obj)); //print out all keys
-    // var_dump(($obj['values'][0]['fromRef']['latestChangeset'])); //json as array
-        //return base64_decode($this->mysecret);
-				// return (($obj['values'][0]['fromRef']['latestChangeset'])); //json as array
+        //echo('<pre>');
+    		//var_dump(array_keys($obj['results'][0]['user'])); //json as array
+				//var_dump(($obj['results'][0]['user']['picture']['medium']));
 
+				$users = array(
+						0 => array(
+							'user'  			=> 'Name: ' . $obj['results'][0]['user']['name']['first'],
+							'location'   	=> 'City: ' . $obj['results'][0]['user']['location']['city'],
+							'email' 			=> 'Email: ' . $obj['results'][0]['user']['email'],
+							'username'  	=> 'username: ' . $obj['results'][0]['user']['username'],
+							'phone' 			=> 'Phone#: ' . $obj['results'][0]['user']['phone'],
+							'cell'   			=> 'Cell#: ' . $obj['results'][0]['user']['cell']
+						)
+				);
+
+				//var_dump(array_keys($obj)); //print out all keys
+				return view('user1')->with('users', $users)->with('image', $obj['results'][0]['user']['picture']['medium']);
 		}
 
 }
