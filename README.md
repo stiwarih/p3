@@ -10,7 +10,7 @@
 This provide access to two popular tools for Random Text and User generator using configurable inputs. In addition a third tool provide user an easy access to random user.
 
 ## Demo
-<http://screencast.com/t/G8kdejcg>
+<http://screencast.com/t/HkwvUEzS6pv>
 
 ## Details for teaching team
 No login required.
