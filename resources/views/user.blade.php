@@ -45,21 +45,39 @@
 			           margin-bottom:5px;
 		        }
         </style>
+        <script>
+        function validateForm() {
+            var x = document.forms["user-gen"]["users"].value;
+            if (x == null || x == "") {
+                alert("Number must be filled out");
+                return false;
+            }
+            if (x > 99 || x < 1) {
+                alert("Number must be filled out between [1-99]");
+                return false;
+            }
+
+        }
+        </script>
     </head>
     <body>
       <a href='http://p3.stiwari.me/'><---Go Home</a>
 
         <h1>User Generator</h1>
 
-      	<form method="POST" action="http://p3.stiwari.me/user-generator" accept-charset="UTF-8">
-      		<label for="users">How many users?</label>		<input maxlength="2" name="users" type="text" value="5" id="users"> (Max: 99)
+      	<form method="POST" name="user-gen" action="/user-generator" accept-charset="UTF-8" >
+      		<label for="users">How many users?</label>
+          <input maxlength="2" name="users" type="number" value={{(isset($num_users))?$num_users:2}} id="users"> (Max: 99)
       		<br>
 
       		Include...
       		<br>
-      		<input name="birthdate" type="checkbox">		<label for="birthdate">Birthdate</label>		<br>
-
-      		<input name="profile" type="checkbox">		<label for="profile">Profile</label>		<br>
+      		<input name="email" type="checkbox" {{ ($use_email ==1) ?  'checked' :  'unchecked' }}>
+          <label for="email">Email</label>		<br>
+          <input name="address" type="checkbox" {{ ($use_address ==1) ?  'checked' :  'unchecked' }}>
+          <label for="address">Address</label>		<br>
+          <input name="phoneNumber" type="checkbox" {{ ($use_phoneNumber ==1) ?  'checked' :  'unchecked' }}>
+          <label for="phoneNumber">Phone Number</label>		<br>
 
       		<input type="submit" value="Generate!">
           </form>
@@ -92,7 +110,7 @@
     		    	<div class='name'>
                 {{ $data['name'] }}
               </div>
-              <div class='birthdate'>
+              <div class='email'>
                 1941-08-29
               </div>
             </div>

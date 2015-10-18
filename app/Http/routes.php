@@ -27,5 +27,6 @@ Route::get('/welcome', 'HomeController@homeWelcome');
 Route::get('/home', 'HomeController@goHome');
 Route::get('/', 'HomeController@goHome');
 Route::get('/lorem-ipsum', 'HomeController@goIpsumDef');
+Route::post('/lorem-ipsum', 'HomeController@goIpsumPost');
 Route::get('/user-generator', 'HomeController@goUserDef');
 Route::post('/user-generator', 'HomeController@goUserPost');

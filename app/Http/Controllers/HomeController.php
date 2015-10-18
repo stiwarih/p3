@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Badcow\LoremIpsum\Generator as Generator;
 
 class HomeController extends Controller {
@@ -16,30 +17,7 @@ class HomeController extends Controller {
 	public function goUserDef()
 	{
 		$faker =\Faker\Factory::create();
-		/*echo $faker->name;
-		echo $faker->address;
-	  echo $faker->text;
-		echo $faker->phoneNumber
-		echo $faker->email;
-		*/
-//return $view->with('persons', $persons)->with('ms', $ms);
-/*
-		$users = array(
-    'name'  	=> $faker->name,
-    'address' => $faker->address,
-		'email'   => $faker->email,
-		'text'   	=> $faker->text,
-    'phone' 	=> $faker->phoneNumber
-		);
 
-		return view('user')->with('users', $users);
-//blade
-		<section>
-		@foreach($paragraphs as $paragraph)
-		 {{ $paragraph }}
-		@endforeach
-		</section>
-*/
 		$users = array(
 		    0 => array(
 					'name'  	=> $faker->name,
@@ -56,7 +34,7 @@ class HomeController extends Controller {
 					'text'   	=> $faker->text
 		    )
 		);
-		return view('user')->with('users', $users);
+		return view('user')->with('users', $users)->with('use_email', 0)->with('use_address', 0)->with('use_phoneNumber', 0);
 	}
 
 	public function goUser()
@@ -65,6 +43,34 @@ class HomeController extends Controller {
 		return view('user')->with('data', $data);
 	}
 
+	public function goUserPost(Request $request = null)
+	//public function goIpsumPost()
+	{
+		$num_users = $request->input('users');
+		//if($num_users > 99) die('User count too high');
+		$use_email 				= isset( $_POST['email'])?1:0;
+		$use_address 			= isset( $_POST['address'])?1:0;
+		$use_phoneNumber 	= isset( $_POST['phoneNumber'])?1:0;
+
+		$faker =\Faker\Factory::create();
+
+		$users = array($num_users);
+
+		for($i=0; $i<$num_users; $i++)
+		{
+				$users[$i] 						= array();
+				$users[$i]['name'] 		= $faker->name;
+				if($use_address ==1)
+				$users[$i]['address'] = $faker->address;
+				if($use_email == 1)
+				$users[$i]['email'] 	= $faker->email;
+				if($use_phoneNumber ==1)
+				$users[$i]['phone'] 	= $faker->phoneNumber;
+				$users[$i]['text'] 		= $faker->text;
+		}
+		return view('user')->with('users', $users)->with('num_users', $num_users)->with('use_email', $use_email)->with('use_address', $use_address)->with('use_phoneNumber', $use_phoneNumber);
+
+		}
 
 		public function goIpsum()
 		{
@@ -73,20 +79,25 @@ class HomeController extends Controller {
 
 		public function goIpsumDef()
 		{
-
-			/*
-			$temp = 'sanjay tiwari';
-			return view('user')->with('temp', $temp);
-			*/
-			//return $view->with('persons', $persons)->with('ms', $ms);
-
 			$generator = new Generator();
 
-			$paragraphs = $generator->getParagraphs(5);
+			$paragraphs = $generator->getParagraphs(2);
 			//echo implode('<p>', $paragraphs);
 
 			return view('ipsum')->with('paragraphs', $paragraphs);
+		}
 
+		public function goIpsumPost(Request $request = null)
+		//public function goIpsumPost()
+		{
+			$num = $request->input('paragraphs');
+
+			$generator = new Generator();
+
+			$paragraphs = $generator->getParagraphs($num);
+			//echo implode('<p>', $paragraphs);
+
+			return view('ipsum')->with('paragraphs', $paragraphs)->with('num_para', $num);
 		}
 
 	public function homeWelcome()

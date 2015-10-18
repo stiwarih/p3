@@ -44,8 +44,23 @@
             .para {
 			           margin-bottom:5px;
 		        }
-
         </style>
+
+        <script>
+        function validateForm() {
+            var x = document.forms["ipsum"]["paragraphs"].value;
+            if (x == null || x == "") {
+                alert("Number must be filled out");
+                return false;
+            }
+            if (x > 99 || x < 1) {
+                alert("Number must be filled out between [1-99]");
+                return false;
+            }
+
+        }
+        </script>
+
     </head>
     <body>
       <a href='http://p3.stiwari.me/'><---Go Home</a>
@@ -53,10 +68,10 @@
       <h1>Lorem Ipsum Generator</h1>
       How many paragraphs do you want?
 
-      	<form method='POST'>
+      	<form method='POST' name='ipsum' action='/lorem-ipsum' onsubmit="return validateForm()"  accept-charset="UTF-8">
+          <label for="paragraphs">Paragraphs</label>
 
-      		<label for="paragraphs">Paragraphs</label>
-      		<input maxlength="2" name="paragraphs" type="text" value="5" id="paragraphs"> (Max: 99)
+      		<input name="paragraphs" type="number" value={{(isset($num_para))?$num_para:2}} id="paragraphs"> (Max: 99)
 
       		<br><br>
 
