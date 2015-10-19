@@ -75,6 +75,7 @@
 
 
         <form method='POST' name='pass' action='/password-generator' onsubmit="return validateForm()"  accept-charset="UTF-8">
+          <input type='hidden' name='_token' value='{{ csrf_token() }}'>
           <label for="passwords"># of words</label>
       		<input name="passwords" type="number" value={{(isset($num_pass))?$num_pass:1}} id="passwords"> (Max: 9)
       		<br><br>

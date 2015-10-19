@@ -70,12 +70,13 @@
                   <li>{{ $error }}</li>
               @endforeach
           </ul>
-      @endif      
+      @endif
       <a href='http://p3.stiwari.me/'><---Go Home</a>
 
       <p>How many paragraphs do you want?
 
       	<form method='POST' name='ipsum' action='/lorem-ipsum' onsubmit="return validateForm()"  accept-charset="UTF-8">
+          <input type='hidden' name='_token' value='{{ csrf_token() }}'>
           <label for="paragraphs">Paragraphs</label>
 
       		<input name="paragraphs" type="number" value={{(isset($num_para))?$num_para:2}} id="paragraphs"> (Max: 99)

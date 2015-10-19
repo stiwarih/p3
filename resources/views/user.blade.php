@@ -73,6 +73,7 @@
 
         <p><br>
       	<form method="POST" name="user-gen" action="/user-generator" onsubmit="return validateForm()" accept-charset="UTF-8" >
+          <input type='hidden' name='_token' value='{{ csrf_token() }}'>
       		<label for="users">How many users?</label>
           <input maxlength="2" name="users" type="number" value={{(isset($num_users))?$num_users:2}} id="users"> (Max: 99)
       		<br>

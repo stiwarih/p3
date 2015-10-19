@@ -12,8 +12,8 @@ class VerifyCsrfToken extends BaseVerifier
      * @var array
      */
     protected $except = [
-         'lorem-ipsum',
+         /*'lorem-ipsum',
          'user-generator',
-         'password-generator',
+         'password-generator',*/
     ];
 }
